@@ -16,4 +16,6 @@ Draw more Lines
 Draw 
 
     context.fillStyle="#ccc";
-    context.fill()
+    context.strokeStyle="#ccc";
+    context.fill();
+    context.stroke();
