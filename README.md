@@ -12,3 +12,8 @@ Draw more Lines
 
     context.beginPath();
     context.closePath()
+
+Draw 
+
+    context.fillStyle="#ccc";
+    context.fill()
