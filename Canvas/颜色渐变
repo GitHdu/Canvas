@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<canvas id="canvas" style="margin:50px auto;border:1px solid #ccc;display:block"></canvas>
+<script>
+    window.onload=function(){
+        var canvas=document.getElementById("canvas");
+        canvas.width=1024;
+        canvas.height=768;
+        var context=canvas.getContext("2d");
+
+        var grd=context.createLinearGradient(100,100,175,50); //颜色渐变的起始坐标和终点坐标
+        grd.addColorStop(0,"yellow"); //0表示起点..0.1 0.2 ...1表示终点，配置颜色
+        grd.addColorStop(1,"blue");
+
+        context.fillStyle=grd; //生成的颜色块赋值给样式
+        context.fillRect(100,100,175,50); //设置色块
+
+    }
+</script>
+</body>
+</html>
