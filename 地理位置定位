@@ -19,7 +19,7 @@
     }
     function createMap(a,b){
         var map=new BMap.Point("ditucontent");
-        var point=new BMap.Point(b,a);//经度在前，纬度在后
+        var point=new BMap.Point(b,a); //经度在前，纬度在后
         map.centerAndZoom(point,20);
         window.map=map;
     }
