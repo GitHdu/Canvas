@@ -1,1 +1,28 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地理定位</title>
+</head>
+<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+<body>
+<div style="width=697px;height=550px;border:#ccc solid 1px;" id="ditucontent"></div>
+<p id="geo_loc"></p>
+    <script>
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(
+            function(p){
+                var latitude=p.coords.latitude;
+                var longitude=p.coords.longitude;
+                createMap(latitude,longitude);
+            });
+    }
+    function createMap(a,b){
+        var map=new BMap.Point("ditucontent");
+        var point=new BMap.Point(b,a);//经度在前，纬度在后
+        map.centerAndZoom(point,20);
+        window.map=map;
+    }
+    </script>
+</body>
+</html>
