@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head
+<meta charset="gbk">
+<title>Creating OS notifications in HTML5</title>
+</head>
+<body>
+<input type="button" value="验证授权" onclick="init();" />
+<input type="button" value="弹出消息" onclick="notify();" />
+
+
+    <script type="text/javascript">
+        const miao = 5;
+
+        function init() {
+            if (window.webkitNotifications) {
+                window.webkitNotifications.requestPermission();
+            }
+        }
+
+        function notify() {
+            var icon = "logo.png";
+            var title = "窗口将在 " + miao + " 5后关闭";
+            var body =  "桌面提醒API";
+
+            if (window.webkitNotifications) {
+                if (window.webkitNotifications.checkPermission() == 0) {
+                    var popup = window.webkitNotifications.createNotification(icon, title, body);
+                    popup.show();
+                } else {
+                    window.webkitNotifications.requestPermission();
+                    return;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
