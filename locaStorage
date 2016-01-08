@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html5本地存储</title>
+</head>
+<body>
+    <script type="text/javascript">
+if(window.localStorage){
+}else{
+    alert("not support");
+}
+localStorage.t1="11111";//三种设置方法
+localStorage["t2"]="22222";
+localStorage.setItem("t3","33333");
+//三种调用方法
+localStorage.t1;
+localStorage["t2"];
+localStorage.getItem("t3");
+for (var i = 0;i<localStorage.length; i++) {
+   document.write(localStorage.key(i)+'-----'+localStorage.getItem(localStorage.key(i))+"<br>");
+};
+
+    </script>
+}
+}
+</body>
+</html>
