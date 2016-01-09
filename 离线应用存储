@@ -1,0 +1,11 @@
+1、在apache配置文件中添加AddType text/cache-manifest .manifest以支持manifest文件；
+2、创建manifest文件，如a.manifest
+  CACHE MANIFESET #声明文件头部
+  CACHE
+  style.css  #离线存储文件
+  NETWORK:
+  search.php  #需要网络调用的文件
+  FALLBACK:
+  index.html  #资源失效或不可用时更新文件
+3、关联manifest文件到html
+<html manifest="a.manifest">
