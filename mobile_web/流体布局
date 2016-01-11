@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>移动web</title>
+    <style type="text/css">
+    *{
+        margin:0;padding: 0;
+    }
+    body{
+        background: #fff;
+        font-size: 0.16rem;
+    }
+    ul,ol{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+    }
+    img{
+        display:block;
+        max-width: 100%;
+    }
+    .none{
+        display: none;
+    }
+    html{
+         font-size: 625%;
+    }
+    #header{
+        width: 100%;
+        height: 0.45rem;
+        background-color:#333;
+        font-size: .16rem;
+    }
+    #header .link{
+        height: 0.45rem;
+        line-height: .45rem;
+        color: #eee;
+    }
+    #header .link li{
+        width: 25%;
+        text-align: center;
+        float: left;
+    }
+    #header .link a{
+        color: #eee;display: block;
+    }
+    #header .link a:hover,#header .active a{
+        background-color: #000;
+    }
+    #ad{
+        max-width:6.4rem;
+        margin:0 auto;
+    }
+     #footer{
+        max-width: 6.4rem;
+        background-color: #222;
+        color: #777;
+        margin:0 auto;
+        text-align: center;
+        padding: .1rem 0;
+        font-size: .16rem;
+     }
+     #footer .top{
+        padding: 0 0 .05rem 0;
+     }
+     //布局忽略边框计算
+     div{
+        box-sizing:border-box;
+     }
+     #search{
+        max-width: 6.4rem;
+        height: .33rem;
+        margin: 0 auto;
+        background-color: #ddd;
+        padding: .03rem 0 0 0;
+        position: relative;
+     }
+     #search .search{
+        width: 95%;
+        height: .27rem;
+        border: none;
+        outline: none;
+        border-radius:.04rem;
+        background-color: #fff;
+        display: block;
+        margin: 0 auto;
+        font-size: .14rem;
+        padding: .05rem;
+     }
+     #search .button{
+        display: block;
+        outline: none;
+        position: absolute;
+        top: 0.03rem;
+        right: 1%;
+        width:.5rem;
+        height: .27rem;
+        border: none;
+        color: #666;
+        border-top-right-radius: .04rem;
+        border-bottom-right-radius: .04rem;
+        background-color: #eee;
+        font-size: .14rem;
+     }
+     #tour{
+        max-width: 6.4rem;
+        margin: .1rem auto 0 auto;
+     }
+     #tour h2{
+        text-align: center;
+        color: #666;font-size: .26rem;
+     }
+     #tour h3{
+        text-align: center;
+        color: #666;font-size: .16rem;
+        margin: .05rem 0 .1rem 0;
+     }
+     @media(min-width: 480px) and (max-width: 640px){
+        #tour h2{
+            font-size: .26rem;
+        }
+        #tour h3{
+            font-size: .16rem;
+        }
+        #footer{
+            font-size: .16rem;
+        }
+     }
+     @media(max-width: 480px){
+        #tour h2{
+            font-size: .2rem;
+        }
+        #tour h3{
+            font-size: .14rem;
+        }
+         #footer{
+            font-size: .13rem;
+        }
+     }
+    </style>
+</head>
+<body>
+<header id="header">
+    <nav class="link">
+        <h2 class="none">网站导航</h2>
+        <ul>
+            <li class="active"><a href="index.html">首页</a></li>
+            <li><a href="information.html">资讯</a></li>
+            <li><a href="ticket.html">票务</a></li>
+            <li><a href="about.html">关于</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="ad"><img src="1.jpg" alt=""></div>
+<div id="search">
+    <input type="text" class="search" placeholder="'请输入要查找的内容">
+    <button class="button">搜索</button>
+</div>
+
+<div id="tour">
+    <hgroup>
+        <h2>热门旅游</h2>
+        <h3>最新旅游资讯</h3>
+    </hgroup>
+</div>
+<footer id="footer">
+    <div class="top">
+        客户端 | 触屏版 | 电脑版
+    </div>
+    <div class="bottom">
+        Copyright ©360.cn. All Rights Reserved. 京ICP证080047号
+    </div>
+</footer>
+</body>
+</html>
