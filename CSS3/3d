@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3</title>
+    <style type="text/css">
+body{
+    margin:100px;
+}
+#a{
+    perspective:1000px;//透视，值越大，z轴越大，图片越小
+    transform-style:preserve-3d;
+}
+img{
+    //transform:transform3d(0px,0px,100px);
+    transform:scale3d(1,1,2.5) rotateZ(45deg);//3d缩放
+}
+</style>
+</head>
+<body>
+<div id="a">
+    <img src="1.jpg" alt="">
+</div>
+
+</body>
+</html>
