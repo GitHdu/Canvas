@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>CSS布局</title>
+	<style type="text/css">
+body {
+    width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    height: 120px;
+    background-color: olive;
+    overflow: auto;
+    resize: both;
+}
+
+aside {
+    width: 200px;
+    height: 500px;
+    background-color: purple;
+    border: 5px solid green;
+    padding: 10px;
+    box-sizing: border-box;
+    float: left;
+}
+
+section {
+    width: 760px;
+    height: 500px;
+    background-color: maroon;
+    float: right;
+}
+
+footer {
+    width: 960px;
+    height: 120;
+    background-color: gray;
+    clear: both;
+}
+
+textarea {
+    resize: none;
+}
+    </style>
+</head>
+<body>
+
+<header>
+	header
+</header>
+
+<aside>
+	aside
+</aside>
+
+<section>
+	section
+</section>
+
+<footer>
+	footer
+</footer>
+
+</body>
+</html>
