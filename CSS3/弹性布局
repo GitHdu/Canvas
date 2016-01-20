@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹性布局</title>
+    <style type="text/css">
+    p{
+        width: 150px;
+        border: 1px solid green;
+        background-color: #ccc;
+        margin: 5px;
+        padding: 5px;
+    }
+    div{
+        display: -moz-box;
+        display: -webkit-box;
+        display: box;
+       /* -webkit-box-orient:vertical;*/
+        -webkit-box-direction:reverse;
+        -webkit-box-pack:center;
+        -webkit-box-align:start;
+    }
+    p:nth-child(1){
+        -webkit-box-flex:1;
+        -webkit-box-ordinal-group:3;
+    }
+    p:nth-child(2){
+        -webkit-box-flex:3;
+        -webkit-box-ordinal-group:2;
+    }
+    p:nth-child(3){
+        -webkit-box-flex:1;//调整显示比例
+        -webkit-box-ordinal-group:1;//调整顺序
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <p>    早在今年初，美国流媒体视频平台Netflix在宣布该公司已登录全球190余个国家与地区时，中国，作为拥有过逾13亿人口的超级市场大国，仍不在其列。然而时隔不足一个月，Netflix CEO Reed Hastings在慕尼黑DLD大会上突然表示，Netflix入华“在即”，目前，该公司正与中国监管部门就相关事宜进行谈判。</p>
+        <p>    为此，Reed Hastings不惜拿出苹果和iPhone的例子为自己和投资人打气，“当年他们卖iPhone的时候，光是协商谈判建立关系就花了6年时间。鉴于此，我们现在最需要的就是耐心”，但是他也承认，顺利入华要做的“功课”相当多，无论是合作的业务伙伴亦或是政府监管机构的批准许可，“有一大批的部门机构需要我们了解和洽谈”。</p>
+        <p>　诚然，Netflix现如今正面临着美国本土增长放缓的问题。自2012年美国本土用户同比增率下降开始，Netflix就已经逐渐开始意识到，海外市场对于自身发展的重要性。仅2014年第3季度，Netflix海外用户增长量就达美国本土的两倍有余。而中国作为新兴市场的代表，其市场潜力早就备受瞩目，但苦于国内监管部门这块“硬骨头”难“啃”，这才让Netflix等诸多海外流媒体平台一时难以下手。</p>
+    </div>
+</body>
+</html>
