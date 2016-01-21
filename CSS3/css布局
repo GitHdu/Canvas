@@ -25,7 +25,6 @@ aside {
     box-sizing: border-box;
     float: left;
 }
-
 section {
     width: 760px;
     height: 500px;
