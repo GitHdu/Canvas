@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    #canvas{
+        display: block;
+        margin: 0 auto;
+    }
+    #controller{
+        width: 800px;
+        margin: 0 auto;
+    }
+    .op_btn{
+        float: right;
+        margin: 10px 0 0 10px;
+        border:2px solid #aaa;
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        text-align: center;
+        border-radius: 5px 5px;
+        cursor: pointer;
+        background-color: white
+        font-weight:bold ;
+    }
+    .color_btn{
+        float: left;
+        margin: 10px 10px 0 0;
+        border:5px solid white;
+        width: 40px;
+        height: 40px;
+        border-radius: 5px 5px;
+        cursor: pointer;
+    }
+    .op_btn:hover{
+        background-color: #def;
+    }
+    .color_btn_select{
+        border:5px solid violet;
+    }
+    #black_btn{
+        background-color: black;
+    }
+    #blue_btn{
+        background-color: blue;
+    }
+    #red_btn{
+        background-color: red;
+    }
+    #yellow_btn{
+        background-color: yellow;
+    }
+    #orange_btn{
+        background-color: orange;
+    }
+    #green_btn{
+        background-color: green;
+    }
+    .clearfix{
+        clear: both;
+    }
+    </style>
+</head>
+<script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+    var canvasWidth=800;
+    var canvasHeight=canvasWidth;
+    var lastLoc={x:0,y:0}
+    var strokecolor="black";
+    var ismousedown=false;
+    var lasttimestamp=0;
+
+    var canvas=document.getElementById("canvas");
+    var context=canvas.getContext("2d");
+    canvas.width=canvasWidth;
+    canvas.height=canvasHeight;
+
+    $("#clear_btn").click(
+        function(e){
+            context.clearRect(0,0,canvasWidth,canvasHeight);
+            drawGrid();
+        }
+        )
+    $(".color_btn").click(function(){
+        $(".color_btn").removeClass("color_btn_select");
+        $(this).addClass("color_btn_select");
+        strokecolor=$(this).css("background-color");
+    })
+    drawGrid();
+
+    canvas.onmousedown=function(e){
+        e.preventDefault();
+        ismousedown=true;
+        lastLoc=windowtocanvas(e.clientX,e.clientY);
+        lasttimestamp=new Date().getTime();
+    }
+    canvas.onmouseup=function(e){
+        e.preventDefault();
+        ismousedown=false;
+    }
+    canvas.onmouseout=function(e){
+        e.preventDefault();
+        ismousedown=false;
+    }
+    canvas.onmousemove=function(e){
+        e.preventDefault();
+        if(ismousedown){
+            var curLoc=windowtocanvas(e.clientX,e.clientY);
+            var s=caldistance(curLoc,lastLoc);
+            var curtimestamp=new Date().getTime();
+            var t=curtimestamp-lasttimestamp;
+
+            var lineWidth=callinewidth(t,s);
+            context.beginPath();
+            context.moveTo(lastLoc.x,lastLoc.y);
+            context.lineTo(curLoc.x,curLoc.y);
+
+            context.strokeStyle=strokecolor;
+            context.lineWidth=lineWidth;
+            context.lineCap="round";
+            context.lineJoin="round";
+            context.stroke();
+
+            lastLoc=curLoc;
+            lasttimestamp=curtimestamp;
+        };
+    }
+
+    function callinewidth(t,s){
+        var v=s/t;
+
+        var resultlinewidth
+        if(v<=0.1) resultlinewidth=30
+            else if(v>=10) resultlinewidth=1
+                else reulstlinewidth=30-(v-0.1)/(10-0.1)*(30-1)
+        return resultlinewidth;
+    }
+
+    function caldistance(loc1,loc2){
+        return Math.sqrt((loc1.x-loc2.x)*(loc1.x-loc2.x)+(loc1.y-loc2.y)*(loc1.y-loc2.y))
+    }
+
+    function windowtocanvas(x,y){
+        var bbox=canvas.getBoundingClientRect();
+        return {x:Math.round(x-bbox.left),y:Math.round(y-bbox.top)};
+    }
+
+    function drawGrid(){
+        context.save();
+
+        context.strokeStyle="rgb(230,11,9)";
+        context.beginPath();
+        context.moveTo(3,3);
+        context.lineTo(canvasWidth-3,3);
+        context.lineTo(canvasWidth-3,canvasWidth-3);
+        context.lineTo(3,canvasWidth-3);
+        context.closePath();
+        context.lineWidth=6;
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(0,0);
+        context.lineTo(canvasWidth,canvasHeight)
+
+        context.moveTo(canvasWidth,0)
+        context.lineTo(0,canvasHeight)
+
+        context.moveTo(canvasWidth/2,0);
+        context.lineTo(canvasWidth/2,canvasHeight);
+
+        context.moveTo(0,canvasHeight/2);
+        context.lineTo(canvasWidth,canvasHeight/2);
+        context.lineWidth=1;
+        context.stroke();
+
+        context.restore();
+    }
+}
+</script>
+<body>
+
+    <canvas id="canvas"></canvas>
+    <div id="controller">
+
+        <div id="black_btn" class="color_btn color_btn_select"></div>
+        <div id="blue_btn" class="color_btn"></div>
+        <div id="green_btn" class="color_btn"></div>
+        <div id="red_btn" class="color_btn"></div>
+        <div id="orange_btn" class="color_btn"></div>
+        <div id="yellow_btn" class="color_btn"></div>
+        <div class="op_btn" id="clear_btn">clear</div>
+        <div class="clearfix"></div>
+    </div>
+</body>
+</html>
